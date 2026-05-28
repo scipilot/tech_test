@@ -1,7 +1,8 @@
 # Simple API server for the Tic-Tac-Toe game
 # built using Express.js
 
-e.g.
+Quick start
+
     nvm use 24
     cd api
     npm i
