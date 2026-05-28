@@ -27,6 +27,7 @@ export const Main = () => {
 	const [winner, setWinner] = useState<number | undefined>(undefined)
 	const [scale, setScale] = useState<number>(3)
 	const [ready, setReady] = useState<Boolean>(false)
+	const [message, setMessage] = useState("")
 	const playerMarks: (XorO | undefined)[] = [undefined, 'X', 'O']
 
 	function initialiseBoard() {
@@ -122,6 +123,12 @@ export const Main = () => {
 	})
 
 	return <div className='flex flex-col mt-10 items-center gap-10'>
+
+		{message && <div
+			className="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+			{message}
+		</div>}
+
 		<div className='font-bold text-2xl'>Tic Tac Toe</div>
 		<div className='flex flex-col gap-1'>
 			{board.map((row, r) => <div className='flex gap-1' key={"R" + r}>
@@ -148,12 +155,12 @@ export const Main = () => {
 
 		<div>
 			<div className='text-2xl font-bold'>Scoreboard</div>
-			<Scoreboard/>
+			<Scoreboard setMessage={setMessage}/>
 		</div>
 
 		<div>
 			<div className='text-2xl font-bold'>Users</div>
-			<UserList/>
+			<UserList setMessage={setMessage}/>
 		</div>
 	</div>
 }

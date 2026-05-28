@@ -4,14 +4,20 @@ import {GetScores} from '../api/api'
 import {Score} from '../api/types'
 
 
-export const Scoreboard = () => {
+export const Scoreboard = ({setMessage}) => {
 	const [scores, setScores] = useState<Score[]>([])
 
 	// TODO RELOAD ON WIN
 	useEffect(() => {
 			(async () => {
 			let newscores = await GetScores()
-			setScores(newscores.data.scores)
+			if(newscores.success) {
+				setScores(newscores.data.scores)
+			}
+			else {
+				setMessage("Failed to load scores! Is the server running?")
+				// alert(newscores.message)
+				console.error(newscores.message)}
 			})()
 		},
 		[])

@@ -4,14 +4,19 @@ import {GetUsers} from '../api/api'
 import {User} from '../api/types'
 
 
-export const UserList = () => {
+export const UserList = ({setMessage}) => {
 	const [users, setUsers] = useState<User[]>([])
 
 	// TODO RELOAD ON WIN
 	useEffect(() => {
 			(async () => {
 			let newusers = await GetUsers()
-			setUsers(newusers.data.users)
+			if(newusers.success){
+				setUsers(newusers.data.users)
+			} else {
+				setMessage("Failed to load users! Is the server running?")
+				console.error(newusers.message)
+			}
 			})()
 		},
 		[])

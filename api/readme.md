@@ -2,9 +2,11 @@
 # built using Express.js
 
 e.g.
-
+    nvm use 24
     cd api
     npm i
+    npx prisma generate
+    npx prisma migrate dev --name init
     npm run dev
 
     # get all scores
@@ -14,7 +16,7 @@ e.g.
     curl http://localhost:7000/api/scores/1 -i
 
 
-# Prisma setup
+# Prisma setup (Journal FYI)
 
 Prisma was added thus:
 
