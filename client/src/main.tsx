@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {XorO} from './types'
 import {Scoreboard} from './components/Scoreboard'
 import {SubmitScore} from './api/api'
+import {UserList} from './components/UserList'
 
 export const Main = () => {
 	const initialBoard = [
@@ -146,9 +147,13 @@ export const Main = () => {
 		</div>}
 
 		<div>
-
 			<div className='text-2xl font-bold'>Scoreboard</div>
 			<Scoreboard/>
+		</div>
+
+		<div>
+			<div className='text-2xl font-bold'>Users</div>
+			<UserList/>
 		</div>
 	</div>
 }

@@ -5,7 +5,7 @@
 * 	For this tech-test demo I have removed the bells and whistles, authentication, CORS, downloads etc.
 */
 
-import {ApiResponse, GetScoresResponse, SimpleResponse} from "./types"
+import {ApiResponse, GetScoresResponse, GetUsersResponse, SimpleResponse} from "./types"
 
 // TODO Move config to dotenv or similar
 const API_URL = "http://localhost:7000/api/"
@@ -17,6 +17,10 @@ export async function SubmitScore(player: string, score: number): Promise<Simple
 }
 export async function GetScores(): Promise<GetScoresResponse> {
 	return getApi(`scores/`)
+}
+
+export async function GetUsers(): Promise<GetUsersResponse> {
+	return getApi(`users/`)
 }
 
 // end region

@@ -1,3 +1,4 @@
 .idea
 package-lock.json
 api/node_modules
+dev.db

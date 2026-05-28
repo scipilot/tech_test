@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import * as scoreService from "./scores.service"
-import { BaseScore, Score } from "./score.interface"
+import type { BaseScore, Score } from "./score.interface"
 import {wrap} from '../api'
 
 // Define Router

@@ -1,5 +1,5 @@
-import { Score } from "./score.interface";
+import type { Score } from "./score.interface"
 
 export interface Scores {
-	[key: number]: Score;
+	[key: number]: Score
 }
